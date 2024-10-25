@@ -18,7 +18,7 @@ services:
     networs:
       -expense
     depends_on:
-      mysql
+      -mysql
   frontend:
     imnage: ashoknarne/frontend:v1
     container-name: frontend
@@ -27,4 +27,4 @@ services:
     ports:
       - 80:80
     depends_on:
-      backend
+      -backend
