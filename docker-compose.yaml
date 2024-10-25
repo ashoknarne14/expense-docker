@@ -20,7 +20,7 @@ services:
     depends_on:
       - mysql
   frontend:
-    imnage: ashoknarne/frontend:v1
+    image: ashoknarne/frontend:v1
     container_name: frontend
     networks:
       - expense
