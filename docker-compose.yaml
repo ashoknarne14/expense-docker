@@ -6,14 +6,14 @@ networks:
 services:
   mysql:
     image: ashoknarne/mysql:v1
-    conatiner_name: mysql
+    container_name: mysql
     networks:
      - expense
     volumes: 
       - mysql:/var/lib/mysql # -v mysql:/var/lib/mysql
   backend:
     image: ashoknarne/backend:v1
-    container-name: backend
+    container_name: backend
     command: sh -c "sleep 10 && node /opt/server/index.js"
     networs:
       - expense
@@ -21,7 +21,7 @@ services:
       - mysql
   frontend:
     imnage: ashoknarne/frontend:v1
-    container-name: frontend
+    container_name: frontend
     networs:
       - expense
     ports:
