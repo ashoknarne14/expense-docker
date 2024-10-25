@@ -1,8 +1,8 @@
 version: "1"
 volumes: 
-  mysql # docker volume create mysql
+  mysql: # docker volume create mysql
 networks:
-  expense # docker network create expense
+  expense: # docker network create expense
 services:
   mysql:
     image: ashoknarne/mysql:v1
