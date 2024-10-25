@@ -1,0 +1,30 @@
+version: "1"
+volumes: 
+  mysql # docker volume create mysql
+networks:
+  expense # docker network create expense
+services:
+  mysql:
+    image: ashoknarne/mysql:v1
+    conatiner_name: mysql
+    networks:
+     -expense
+    volumes: 
+      - mysql:/var/lib/mysql # -v mysql:/var/lib/mysql
+  backend:
+    image: ashoknarne/backend:v1
+    container-name: backend
+    command: sh -c "sleep 10 && node /opt/server/index.js"
+    networs:
+      -expense
+    depends_on:
+      mysql
+  frontend:
+    imnage: ashoknarne/frontend:v1
+    container-name: frontend
+    networs:
+      -expense
+    ports:
+      - 80:80
+    depends_on:
+      backend
