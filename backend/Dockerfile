@@ -1,5 +1,5 @@
 # multi stage build
-FROM node:20 AS build
+FROM node:20 AS builder
 WORKDIR /opt/server
 COPY package.json .
 COPY *.js .
